@@ -7,8 +7,8 @@ public class Train extends Trasnsport {
     private String finalStop;
     private int numberWagons;
 
-    public Train(String mark, String model, int yearRelease, String issuingCountry, String colorBody, int maxSpeed) {
-        super(mark, model, yearRelease, issuingCountry, colorBody, maxSpeed);
+    public Train(String mark, String model, int yearRelease, String issuingCountry, String colorBody, int maxSpeed,String reefill) {
+        super(mark, model, yearRelease, issuingCountry, colorBody, maxSpeed,reefill);
     }
 
     public Train(String mark,
@@ -21,8 +21,9 @@ public class Train extends Trasnsport {
                  int travelTime,
                  String nameDepartureStation,
                  String finalStop,
-                 int numberWagons) {
-        super(mark, model, yearRelease, issuingCountry, colorBody, maxSpeed);
+                 int numberWagons,
+                 String reefill) {
+        super(mark, model, yearRelease, issuingCountry, colorBody, maxSpeed,reefill);
         setTripPrice(tripPrice);
         setTravelTime(travelTime);
         setNameDepartureStation(nameDepartureStation);
@@ -79,6 +80,14 @@ public class Train extends Trasnsport {
                 "скорость передвижения -" + getMaxSpeed() + "км/ч," +
                 getNameDepartureStation() + getFinalStop() +
                 ", цена поездки -" + getTripPrice() + "руб" +
-                ", в поезде " + numberWagons + " вагонов. ";
+                ", в поезде " + numberWagons + " вагонов. " +
+                getReefill();
+    }
+
+    @Override
+    public void refill() {
+        String reefill = " Можно заправлять дизелем на заправке. ";
+        this.setReefill(reefill);
+
     }
 }

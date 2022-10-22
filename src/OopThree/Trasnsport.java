@@ -1,6 +1,6 @@
 package OopThree;
 
-public class Trasnsport {
+public  abstract class Trasnsport {
 
     private String mark;
     private String model;
@@ -8,14 +8,16 @@ public class Trasnsport {
     private final String issuingCountry;
     private String colorBody;
     private int maxSpeed;
+    private String reefilli;
 
-    public Trasnsport(String mark, String model, int yearRelease, String issuingCountry, String colorBody, int maxSpeed) {
+    public Trasnsport(String mark, String model, int yearRelease, String issuingCountry, String colorBody, int maxSpeed,String reefilli) {
         this.mark = mark;
         this.model = model;
         this.yearRelease = yearRelease;
         this.issuingCountry = issuingCountry;
         this.colorBody = colorBody;
         this.maxSpeed = maxSpeed;
+        this.reefilli = reefilli;
     }
 
     public String getMark() {
@@ -58,6 +60,14 @@ public class Trasnsport {
         this.maxSpeed = maxSpeed > 0 ? maxSpeed : 0;
     }
 
+    public String getReefill() {
+        return reefilli;
+    }
+
+    public void setReefill(String reefill) {
+        this.reefilli = reefill == null || reefill.isEmpty() ? "Некорректный ввод." : reefill;
+    }
+
     @Override
     public String toString() {
         return
@@ -67,6 +77,8 @@ public class Trasnsport {
                 " страна выпуска " + issuingCountry + ',' +
                 " цвет " + colorBody + ',' +
                 " скорость движения " + maxSpeed +
-                "км/ч.";
+                "км/ч." + getReefill();
     }
+    public abstract void refill();
+
 }

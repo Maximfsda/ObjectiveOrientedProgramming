@@ -22,8 +22,9 @@ public class Car extends Trasnsport {
                String bodyTupe,
                String regNumber,
                int placesCount,
-               String winterTires) {
-        super(mark, model, yearManufacture, assemblyCountry, bodyColour, 0);
+               String winterTires,
+               String reefill) {
+        super(mark, model, yearManufacture, assemblyCountry, bodyColour, 0,reefill);
         this.bodyTupe = validOrDefaultCar(bodyTupe, "Информация неизвестна.");
         this.placesCount = Math.max(placesCount, 2);
         setEngineCapacity(engineCapacity);
@@ -136,9 +137,9 @@ public class Car extends Trasnsport {
                 (getKey().isRemoteStart() ? " Удаленный запуск " : " Обычный запуск ") +
                 ",номер страховки:" + getInsurance().getNumber() +
                 ",стоимость страховки:" + getInsurance().getCost() +
-                ",срок действия страховки:" + getInsurance().getExpireDate();
+                ",срок действия страховки:" + getInsurance().getExpireDate()
+                + getReefill();
     }
-
     public static class Key {
         private final boolean remoteStart;
         private final boolean keyAccess;
@@ -202,6 +203,14 @@ public class Car extends Trasnsport {
             }
         }
     }
+    @Override
+    public void refill() {
+        String reefill = "Можно заправлять бензином, дизелем на заправке " +
+                "или заряжать на специальных электропарковках, если это электрокар.";
+        this.setReefill(reefill);
+
+    }
+
 }
 
 
