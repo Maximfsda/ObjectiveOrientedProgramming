@@ -60,4 +60,9 @@ public class Mammals extends Animals {
         Mammals mammals = (Mammals) o;
         return getSpeed() == mammals.getSpeed() && Objects.equals(getLivingEnvironment(), mammals.getLivingEnvironment());
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), livingEnvironment, speed);
+    }
 }

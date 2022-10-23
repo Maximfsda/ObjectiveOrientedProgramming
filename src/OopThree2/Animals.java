@@ -38,4 +38,9 @@ public abstract class Animals {
         Animals animals = (Animals) o;
         return getYearsOld() == animals.getYearsOld() && Objects.equals(getAnimalName(), animals.getAnimalName());
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(animalName, yearsOld);
+    }
 }

@@ -50,4 +50,8 @@ public class Amphibians extends Animals {
         Amphibians that = (Amphibians) o;
         return Objects.equals(getLivingEnvironment(), that.getLivingEnvironment());
     }
+    @Override
+    public int hashCode() {
+        return Objects.hash(livingEnvironment);
+    }
 }

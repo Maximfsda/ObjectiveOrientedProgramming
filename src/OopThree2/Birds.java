@@ -48,4 +48,9 @@ public class Birds extends Animals{
         Birds birds = (Birds) o;
         return Objects.equals(getLivingEnvironment(), birds.getLivingEnvironment());
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), livingEnvironment);
+    }
 }

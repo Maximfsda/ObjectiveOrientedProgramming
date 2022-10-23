@@ -1,13 +1,15 @@
 package OopThree1;
 
+import java.util.Objects;
+
 public  abstract class Trasnsport {
 
-    private String mark;
-    private String model;
+    private final String mark;
+    private final String model;
     private final int yearRelease;
     private final String issuingCountry;
-    private String colorBody;
-    private int maxSpeed;
+    private final String colorBody;
+    private final int maxSpeed;
     private String reefilli;
 
     public Trasnsport(String mark, String model, int yearRelease, String issuingCountry, String colorBody, int maxSpeed,String reefilli) {
@@ -28,14 +30,6 @@ public  abstract class Trasnsport {
         return model;
     }
 
-    public void setMark(String mark) {
-        this.mark = mark == null || mark.isEmpty() ? "Некорректный ввод." : mark;
-    }
-
-    public void setModel(String model) {
-        this.model = model == null || model.isEmpty() ? "Некорректный ввод." : model;
-    }
-
     public int getYearRelease() {
         return yearRelease;
     }
@@ -48,24 +42,17 @@ public  abstract class Trasnsport {
         return colorBody;
     }
 
-    public void setColorBody(String colorBody) {
-        this.colorBody = colorBody == null || colorBody.isEmpty() ? "Некорректный ввод." : colorBody;
-    }
 
     public int getMaxSpeed() {
         return maxSpeed;
-    }
-
-    public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed > 0 ? maxSpeed : 0;
     }
 
     public String getReefill() {
         return reefilli;
     }
 
-    public void setReefill(String reefill) {
-        this.reefilli = reefill == null || reefill.isEmpty() ? "Некорректный ввод." : reefill;
+    public void setReefilli(String reefilli) {
+        this.reefilli = reefilli;
     }
 
     @Override
@@ -81,4 +68,16 @@ public  abstract class Trasnsport {
     }
     public abstract void refill();
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Trasnsport that = (Trasnsport) o;
+        return yearRelease == that.yearRelease && maxSpeed == that.maxSpeed && Objects.equals(mark, that.mark) && Objects.equals(model, that.model) && Objects.equals(issuingCountry, that.issuingCountry) && Objects.equals(colorBody, that.colorBody) && Objects.equals(reefilli, that.reefilli);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(mark, model, yearRelease, issuingCountry, colorBody, maxSpeed, reefilli);
+    }
 }

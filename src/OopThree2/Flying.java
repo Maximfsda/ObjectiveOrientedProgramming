@@ -57,4 +57,9 @@ public class Flying extends Birds{
         Flying flying = (Flying) o;
         return Objects.equals(typeLocomotion, flying.typeLocomotion);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), typeLocomotion);
+    }
 }

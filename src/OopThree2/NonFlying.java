@@ -57,4 +57,9 @@ public class NonFlying extends Birds {
         NonFlying nonFlying = (NonFlying) o;
         return Objects.equals(typeLocomotion, nonFlying.typeLocomotion);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), typeLocomotion);
+    }
 }

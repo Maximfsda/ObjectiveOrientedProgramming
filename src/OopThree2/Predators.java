@@ -57,4 +57,9 @@ public class Predators extends Mammals{
         Predators predators = (Predators) o;
         return Objects.equals(getFoodTupe(), predators.getFoodTupe());
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), foodTupe);
+    }
 }

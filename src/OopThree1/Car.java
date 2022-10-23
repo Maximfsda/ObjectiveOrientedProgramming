@@ -1,6 +1,7 @@
 package OopThree1;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Car extends Trasnsport {
     private double engineCapacity;
@@ -140,6 +141,20 @@ public class Car extends Trasnsport {
                 ",срок действия страховки:" + getInsurance().getExpireDate()
                 + getReefill();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return Double.compare(car.engineCapacity, engineCapacity) == 0 && placesCount == car.placesCount && Objects.equals(gearBox, car.gearBox) && Objects.equals(bodyTupe, car.bodyTupe) && Objects.equals(regNumber, car.regNumber) && Objects.equals(winterTires, car.winterTires) && Objects.equals(key, car.key) && Objects.equals(insurance, car.insurance);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(engineCapacity, gearBox, bodyTupe, regNumber, placesCount, winterTires, key, insurance);
+    }
+
     public static class Key {
         private final boolean remoteStart;
         private final boolean keyAccess;
@@ -207,7 +222,7 @@ public class Car extends Trasnsport {
     public void refill() {
         String reefill = "Можно заправлять бензином, дизелем на заправке " +
                 "или заряжать на специальных электропарковках, если это электрокар.";
-        this.setReefill(reefill);
+        this.setReefilli(reefill);
 
     }
 

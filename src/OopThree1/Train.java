@@ -1,5 +1,7 @@
 package OopThree1;
 
+import java.util.Objects;
+
 public class Train extends Trasnsport {
     private int tripPrice;
     private int travelTime;
@@ -87,7 +89,20 @@ public class Train extends Trasnsport {
     @Override
     public void refill() {
         String reefill = " Можно заправлять дизелем на заправке. ";
-        this.setReefill(reefill);
+        this.setReefilli(reefill);
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Train train = (Train) o;
+        return tripPrice == train.tripPrice && travelTime == train.travelTime && numberWagons == train.numberWagons && Objects.equals(nameDepartureStation, train.nameDepartureStation) && Objects.equals(finalStop, train.finalStop);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(tripPrice, travelTime, nameDepartureStation, finalStop, numberWagons);
     }
 }

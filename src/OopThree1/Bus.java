@@ -9,7 +9,16 @@ public class Bus extends Trasnsport {
     @Override
     public void refill() {
          String reefill = "Можно заправлять бензином, дизелем на заправке ";
-         this.setReefill(reefill);
+         this.setReefilli(reefill);
 
+    }
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

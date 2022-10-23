@@ -57,4 +57,9 @@ public class Herbivores extends Mammals {
         Herbivores that = (Herbivores) o;
         return Objects.equals(getFoodTupe(), that.getFoodTupe());
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), foodTupe);
+    }
 }
