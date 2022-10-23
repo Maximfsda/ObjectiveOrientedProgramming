@@ -1,12 +1,12 @@
-package OopThreeOne;
+package OopThree2;
 
 import java.util.Objects;
 
-public class Birds extends Animals{
+public class Amphibians extends Animals {
 
     private String livingEnvironment;
 
-    public Birds(String animalName, int yearsOld, String livingEnvironment) {
+    public Amphibians(String animalName, int yearsOld, String livingEnvironment) {
         super(animalName, yearsOld);
         setLivingEnvironment(livingEnvironment);
     }
@@ -19,7 +19,8 @@ public class Birds extends Animals{
         this.livingEnvironment = livingEnvironment == null || livingEnvironment.isEmpty() ? "Данные введены не корректно." : livingEnvironment;
     }
 
-    public void hunt(){
+    public void hunt(Animals animals){
+        System.out.println(getAnimalName() + " выходит на охоту.");
     }
 
     @Override
@@ -37,7 +38,8 @@ public class Birds extends Animals{
     @Override
     public String toString() {
         return super.toString() +
-                ", среда проживания -" + livingEnvironment;
+                ", тип пищи -" + livingEnvironment +
+                ". Принадлежит к классу - Земноводные.";
     }
 
     @Override
@@ -45,7 +47,7 @@ public class Birds extends Animals{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        Birds birds = (Birds) o;
-        return Objects.equals(getLivingEnvironment(), birds.getLivingEnvironment());
+        Amphibians that = (Amphibians) o;
+        return Objects.equals(getLivingEnvironment(), that.getLivingEnvironment());
     }
 }

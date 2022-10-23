@@ -1,14 +1,16 @@
-package OopThreeOne;
+package OopThree2;
 
 import java.util.Objects;
 
-public class Amphibians extends Animals {
+public class Mammals extends Animals {
 
     private String livingEnvironment;
+    private int speed;
 
-    public Amphibians(String animalName, int yearsOld, String livingEnvironment) {
+    public Mammals(String animalName, int yearsOld, String livingEnvironment, int speed) {
         super(animalName, yearsOld);
         setLivingEnvironment(livingEnvironment);
+        setSpeed(speed);
     }
 
     public String getLivingEnvironment() {
@@ -19,8 +21,16 @@ public class Amphibians extends Animals {
         this.livingEnvironment = livingEnvironment == null || livingEnvironment.isEmpty() ? "Данные введены не корректно." : livingEnvironment;
     }
 
-    public void hunt(Animals animals){
-        System.out.println(getAnimalName() + " выходит на охоту.");
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed > 0 ? speed : 0;
+    }
+
+    public void walk(){
+        System.out.println(getAnimalName() + " идет гулять.");
     }
 
     @Override
@@ -37,9 +47,9 @@ public class Amphibians extends Animals {
 
     @Override
     public String toString() {
-        return super.toString() +
-                ", тип пищи -" + livingEnvironment +
-                ". Принадлежит к классу - Земноводные.";
+        return  super.toString() +
+                ", среда проживания -" + livingEnvironment +
+                ",скорость перемещения -" + speed + "км/ч,";
     }
 
     @Override
@@ -47,7 +57,7 @@ public class Amphibians extends Animals {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        Amphibians that = (Amphibians) o;
-        return Objects.equals(getLivingEnvironment(), that.getLivingEnvironment());
+        Mammals mammals = (Mammals) o;
+        return getSpeed() == mammals.getSpeed() && Objects.equals(getLivingEnvironment(), mammals.getLivingEnvironment());
     }
 }

@@ -1,14 +1,14 @@
-package OopThreeOne;
+package OopThree2;
 
 import java.util.Objects;
 
-public class Predators extends Mammals{
+public class Herbivores extends Mammals {
 
     private String foodTupe;
 
-    public Predators(String animalName, int yearsOld, String livingEnvironment, int speed, String foodTupe) {
+    public Herbivores(String animalName, int yearsOld, String livingEnvironment, int speed, String foodTupe) {
         super(animalName, yearsOld, livingEnvironment, speed);
-        this.foodTupe = foodTupe;
+        setFoodTupe(foodTupe);
     }
 
     public String getFoodTupe() {
@@ -16,11 +16,11 @@ public class Predators extends Mammals{
     }
 
     public void setFoodTupe(String foodTupe) {
-        this.foodTupe = foodTupe;
+        this.foodTupe = foodTupe == null || foodTupe.isEmpty() ? "Данные введены не корректно." : foodTupe;
     }
 
-    public void hunt(){
-        System.out.println(getAnimalName() + " выходит на охоту.");
+    public void graze() {
+        System.out.println(getAnimalName() + " идет пастись.");
     }
 
     @Override
@@ -46,7 +46,7 @@ public class Predators extends Mammals{
     @Override
     public String toString() {
         return super.toString() +
-                " тип пищи -" + foodTupe + ".Пренадлежит к классу - Хищники";
+                " тип пищи -" + foodTupe + ".Принадлежит к классу - Травоядные.";
     }
 
     @Override
@@ -54,7 +54,7 @@ public class Predators extends Mammals{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        Predators predators = (Predators) o;
-        return Objects.equals(getFoodTupe(), predators.getFoodTupe());
+        Herbivores that = (Herbivores) o;
+        return Objects.equals(getFoodTupe(), that.getFoodTupe());
     }
 }

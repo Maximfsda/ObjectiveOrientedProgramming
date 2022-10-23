@@ -1,16 +1,14 @@
-package OopThreeOne;
+package OopThree2;
 
 import java.util.Objects;
 
-public class Mammals extends Animals {
+public class Birds extends Animals{
 
     private String livingEnvironment;
-    private int speed;
 
-    public Mammals(String animalName, int yearsOld, String livingEnvironment, int speed) {
+    public Birds(String animalName, int yearsOld, String livingEnvironment) {
         super(animalName, yearsOld);
         setLivingEnvironment(livingEnvironment);
-        setSpeed(speed);
     }
 
     public String getLivingEnvironment() {
@@ -21,16 +19,7 @@ public class Mammals extends Animals {
         this.livingEnvironment = livingEnvironment == null || livingEnvironment.isEmpty() ? "Данные введены не корректно." : livingEnvironment;
     }
 
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed > 0 ? speed : 0;
-    }
-
-    public void walk(){
-        System.out.println(getAnimalName() + " идет гулять.");
+    public void hunt(){
     }
 
     @Override
@@ -47,9 +36,8 @@ public class Mammals extends Animals {
 
     @Override
     public String toString() {
-        return  super.toString() +
-                ", среда проживания -" + livingEnvironment +
-                ",скорость перемещения -" + speed + "км/ч,";
+        return super.toString() +
+                ", среда проживания -" + livingEnvironment;
     }
 
     @Override
@@ -57,7 +45,7 @@ public class Mammals extends Animals {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        Mammals mammals = (Mammals) o;
-        return getSpeed() == mammals.getSpeed() && Objects.equals(getLivingEnvironment(), mammals.getLivingEnvironment());
+        Birds birds = (Birds) o;
+        return Objects.equals(getLivingEnvironment(), birds.getLivingEnvironment());
     }
 }
