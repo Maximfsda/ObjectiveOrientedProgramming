@@ -92,7 +92,6 @@ public class Train extends Trasnsport {
         this.setReefilli(reefill);
 
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
