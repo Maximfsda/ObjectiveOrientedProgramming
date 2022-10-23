@@ -1,5 +1,7 @@
 package OopFour1;
 
+import OopFour1.Transport.DriverB;
+
 public class Main {
     public static void main(String[] args) {
         Car lada = new Car("Lada", "Granta", 1.7);
@@ -17,5 +19,10 @@ public class Main {
         lada.pitStop("Ка");
         lada.bestLapTimeEver(1.4,2.4,3.4,0.1);
         gaz.maxSpeed(1,556,34);
+
+
+        Car car = new Car("Toyota","Korsa",1.7);
+        DriverB driver = new DriverB("Вася",3,car);
+        System.out.println(driver);
     }
 }
