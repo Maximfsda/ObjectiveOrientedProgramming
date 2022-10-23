@@ -1,10 +1,9 @@
 package OopFour1;
 
 public interface Сompeting {
+    void pitStop(String command);
 
-    void pitStop();
+    void bestLapTimeEver(double... command);
 
-    void bestLapTimeEver();
-
-    void maxSpeed();
+    void maxSpeed(int... speed);
 }

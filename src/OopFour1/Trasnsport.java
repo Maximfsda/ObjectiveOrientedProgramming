@@ -1,6 +1,6 @@
 package OopFour1;
 
-public  abstract class Trasnsport {
+public abstract class Trasnsport {
 
     private String mark;
     private String model;
@@ -11,6 +11,7 @@ public  abstract class Trasnsport {
         this.model = model;
         this.engineCapacity = engineCapacity;
     }
+
     public String getMark() {
         return mark;
     }

@@ -13,5 +13,9 @@ public class Main {
         Bus maz = new Bus("МАЗ","324",5.6);
         Bus nefaz = new Bus("НЕФАЗ","3-1",6.5);
         Bus olimp = new Bus("ОЛИМП","20-1",5.4);
+
+        lada.pitStop("Ка");
+        lada.bestLapTimeEver(1.4,2.4,3.4,0.1);
+        gaz.maxSpeed(1,556,34);
     }
 }
