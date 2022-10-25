@@ -15,7 +15,29 @@ public class Truks extends Trasnsport implements Сompeting {
         public String getCapacity() {
             return capacity;
         }
+
+        public void setCapacity(String capacity) {
+            this.capacity = capacity;
+        }
+
+        public void defineAutoType(String truk) {
+            switch (truk) {
+                case "N1":
+                    System.out.println(TIP_N1.getCapacity());
+                    break;
+                case "N2":
+                    System.out.println(TIP_N2.getCapacity());
+                    break;
+                case "N3":
+                    System.out.println(TIP_N3.getCapacity());
+                    break;
+                default:
+                    System.out.println("Данных по авто недостаточно.");
+            }
+
+        }
     }
+
     public Truks(String mark, String model, double engineCapacity) {
         super(mark, model, engineCapacity);
     }

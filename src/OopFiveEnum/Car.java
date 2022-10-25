@@ -16,6 +16,10 @@ public class Car extends Trasnsport implements Сompeting {
         public String getName() {
             return name;
         }
+
+        public void setName(String name) {
+            this.name = name;
+        }
     }
 
     public Car(String mark, String model, double engineCapacity) {
