@@ -12,7 +12,6 @@ public class MultilipleTable {
         while (tasks.size() < 15){
             tasks.add(new Task(random.nextInt(10), random.nextInt(10)));
         }
-
     }
 
     @Override

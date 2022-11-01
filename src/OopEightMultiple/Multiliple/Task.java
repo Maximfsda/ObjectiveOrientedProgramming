@@ -20,7 +20,6 @@ public class Task {
         return (valueOne == task.valueOne && valueTwo == task.valueTwo) ||
                 (valueOne == task.valueTwo && valueTwo == task.valueOne);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(valueOne * valueTwo);
