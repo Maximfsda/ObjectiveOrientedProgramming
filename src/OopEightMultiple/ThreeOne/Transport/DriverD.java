@@ -1,6 +1,6 @@
-package OopSevenСollections.OneOne.Transport;
+package OopEightMultiple.ThreeOne.Transport;
 
-import OopSevenСollections.OneOne.Bus;
+import OopEightMultiple.ThreeOne.Bus;
 
 
 public class DriverD extends Driver<Bus> {
