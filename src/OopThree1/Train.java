@@ -1,4 +1,6 @@
-package OopThree;
+package OopThree1;
+
+import java.util.Objects;
 
 public class Train extends Trasnsport {
     private int tripPrice;
@@ -7,8 +9,8 @@ public class Train extends Trasnsport {
     private String finalStop;
     private int numberWagons;
 
-    public Train(String mark, String model, int yearRelease, String issuingCountry, String colorBody, int maxSpeed) {
-        super(mark, model, yearRelease, issuingCountry, colorBody, maxSpeed);
+    public Train(String mark, String model, int yearRelease, String issuingCountry, String colorBody, int maxSpeed,String reefill) {
+        super(mark, model, yearRelease, issuingCountry, colorBody, maxSpeed,reefill);
     }
 
     public Train(String mark,
@@ -21,8 +23,9 @@ public class Train extends Trasnsport {
                  int travelTime,
                  String nameDepartureStation,
                  String finalStop,
-                 int numberWagons) {
-        super(mark, model, yearRelease, issuingCountry, colorBody, maxSpeed);
+                 int numberWagons,
+                 String reefill) {
+        super(mark, model, yearRelease, issuingCountry, colorBody, maxSpeed,reefill);
         setTripPrice(tripPrice);
         setTravelTime(travelTime);
         setNameDepartureStation(nameDepartureStation);
@@ -79,6 +82,26 @@ public class Train extends Trasnsport {
                 "скорость передвижения -" + getMaxSpeed() + "км/ч," +
                 getNameDepartureStation() + getFinalStop() +
                 ", цена поездки -" + getTripPrice() + "руб" +
-                ", в поезде " + numberWagons + " вагонов. ";
+                ", в поезде " + numberWagons + " вагонов. " +
+                getReefill();
+    }
+
+    @Override
+    public void refill() {
+        String reefill = " Можно заправлять дизелем на заправке. ";
+        this.setReefilli(reefill);
+
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Train train = (Train) o;
+        return tripPrice == train.tripPrice && travelTime == train.travelTime && numberWagons == train.numberWagons && Objects.equals(nameDepartureStation, train.nameDepartureStation) && Objects.equals(finalStop, train.finalStop);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(tripPrice, travelTime, nameDepartureStation, finalStop, numberWagons);
     }
 }
